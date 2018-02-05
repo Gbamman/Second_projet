@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+    <thead  class="main-new-action-bg">
+    <tr>
+        <th>{{ 'societe.indexview.table.code'|trans(arguments = {}, domain = 'societe') }}</th>
+        <th>{{ 'societe.indexview.table.sigle'|trans(arguments = {}, domain = 'societe') }}</th>
+        <th>{{ 'societe.indexview.table.description'|trans(arguments = {}, domain = 'societe') }}</th>
+        {# <th>Créé le </th>#}
+        <th>{{ 'societe.indexview.table.actif'|trans(arguments = {}, domain = 'societe') }}  </th>
+        <th>{{ 'societe.indexview.table.action'|trans(arguments = {}, domain = 'societe') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for confSociete in confSocietes %}
+        <tr>
+            <td>{{ confSociete.codeSociete }}</td>
+            <td>{{ confSociete.sigle }}</td>
+            <td>{{ confSociete.description }}</td>
+            {# <td>{% if confSociete.created %}{{ confSociete.created|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+            <td>{% if confSociete.supprimer %} <span class="glyphicon glyphicon-remove"></span> {% else %} <span class="glyphicon glyphicon-ok"></span>{% endif %}</td>
+            <td>
+                <a class="btn btn-default btn-xs" href="{{ path('societe_show', { 'id': confSociete.id }) }}"> <span class="glyphicon glyphicon-eye-open"></span></a>
+                <a class="btn btn-info btn-xs" href="{{ path('societe_edit', { 'id': confSociete.id }) }}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-danger btn-xs" href="{{ path('societe_edit', { 'id': confSociete.id }) }}"> <span class="glyphicon glyphicon-remove"></span></a>
+
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

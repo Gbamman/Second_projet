@@ -1,0 +1,28 @@
+comptecomptableplan:
+    name: Accounting account plan
+    indexview:
+        title: List of accounts
+        addbtnlabel: New account
+        table:
+            searchformlabel: Search for an account, using its code or its description
+            compte: Accounts
+            sens: Debit|Credit
+            description: Description
+            actif: Active
+            action: Actions
+            suppression: Delete
+            estespece: Is the species account?
+            creation: Created
+
+    showview:
+        title: Account details
+    newview:
+        title: Create a new account
+        form:
+            labelplan: Chart of Accounts
+            labelcompte: Account
+            labelsens: Debit|Credit
+            labelestcompteespece: In cash?
+            labeldescription: Account description
+    editview:
+        title: Edit an account

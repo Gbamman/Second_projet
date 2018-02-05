@@ -1,0 +1,33 @@
+detailmodele:
+    name: Parametrage des jeux d'écritures
+    indexview:
+        title: Paramétrage
+
+    parametre:
+        plan: Plan comptable
+        typeoperation: Type de l'Opération
+        schema: Schéma d'Ecriture
+        nature: Nature de l'Opération
+        placeholdernature: choisir une nature
+        placeholderschema: choisir un schema
+        charger: Charger le modele
+
+    table:
+        title: MODELE D'ECRITURE
+        table1:
+            debit: Débit
+            credit: Crédit
+            libelle: Libellé
+            formule: Formule
+            compte: Compte
+            sens: Sens
+            ajouter: Ajouter
+
+    modal:
+        title: Trouver un compte comptable
+        libelle: ENTRER ICI LE COMPTE OU LE LIBELLE
+        placeholder: N° Compte ou Libellé
+        numerocompte: NUMERO DE COMPTE
+        compte: COMPTE COMPTABLE
+        default: Aucun compte trouvé pour cette recherche
+        erreur1: Les paramètres sont incomplets

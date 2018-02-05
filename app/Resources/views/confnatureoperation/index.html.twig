@@ -1,0 +1,39 @@
+{% extends 'confnatureoperation/template.html.twig' %}
+    {% block breadcrumb %}
+        <div class="container">
+            <ol class="breadcrumb">
+               <li>  {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+              <li class="active">{{'natureoperation.name'|trans(arguments = {}, domain = 'natureoperation')}}</li>
+            </ol>
+        </div>
+    {% endblock %}
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'natureoperation.indexview.addbtnlabel'|trans(arguments = {}, domain = 'natureoperation')}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('natureoperation_new') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-plus-sign"></span> <b>{{'natureoperation.indexview.addbtnlabel'|trans(arguments = {}, domain = 'natureoperation')}} </b></a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <input class="form-control" type="text" placeholder="{{'natureoperation.indexview.table.searchformlabel'|trans(arguments = {}, domain = 'natureoperation')}}">
+            </div>
+        </div>
+        <br>
+        <div id="div_tableau_liste_natureoperation">
+            {% include 'confnatureoperation/include/tableau.html.twig' with  {'confNatureOperations': confNatureOperations} %}
+        </div>
+    {#<ul>
+        <li>
+            <a href="{{ path('societe_new') }}">Create a new confSociete</a>
+        </li>
+    </ul>#}
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+exercice:
+    name: Financial year
+    indexview:
+        title: Financial year List
+        addbtnlabel: New year
+        table:
+            searchformlabel: Search for a financial year by date.
+            Encours: Code sheet
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details about the financial year
+    newview:
+        title: Create a financial year
+        form:
+            labelencours: Accounting code sheet
+            labelperiode: Period
+            labelsociete: Society
+    editview:
+        title: Modify the financial year

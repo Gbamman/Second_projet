@@ -1,0 +1,23 @@
+societe:
+    name: Society
+    indexview:
+        title: List of societies
+        addbtnlabel: New society
+        table:
+            searchformlabel: Find a society with its code, unique name or description
+            code: Society code
+            sigle: Unique name
+            description: Description
+            actif: Active
+            action: Actions
+
+    showview:
+        title: Company Details
+    newview:
+        title: Create a new society
+        form:
+            labelcode: Code of the society
+            labelsigle: Unique name
+            labeldescription: Description of the society
+    editview:
+            title: Edit a society

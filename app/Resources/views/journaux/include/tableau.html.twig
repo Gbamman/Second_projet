@@ -1,0 +1,23 @@
+  <table class="table table-bordered">
+                    <thead  class="main-new-action-bg fontzize13px">
+                    <tr>
+                        <th class="text-uppercase text-muted text-center">Code Journal</th>
+                        <th class="text-uppercase text-muted text-center">Libelle du Journal</th>
+                        <th class="text-uppercase text-muted text-center">Compte contrepartie</th>
+                        <th class="text-uppercase text-muted text-center">Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tablaeuJournauxBody">
+                    {% for journal in Journaux %}
+                        <tr>
+                            <td>{{ journal.codeJournal }}</td>
+                            <td>{{ journal.libelle }}</td>
+                            <td>{{ journal.compteContrePartie }}</td>
+                            <td>
+                                <a class="btn btn-danger btn-xs" href="{{path('liste_operation', { 'id': journal.id })  }}"> <span class="glyphicon glyphicon-eye-open"></span> Voir les operations</a>
+                                
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+    </table> 

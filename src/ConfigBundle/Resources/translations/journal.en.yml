@@ -1,0 +1,26 @@
+journal:
+    name: Operations Log
+    indexview:
+        title: Log List 
+        addbtnlabel: New operations Log
+        table:
+            searchformlabel: Search usin the log code, its unique wording or from a society.
+            codejournal: Accounting journal code
+            libelle: Uinque wording
+            comptecomtrepartie: Compte contrepartie
+            estbanque: Is it a bank?
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details on the accounting journal
+    newview:
+        title: Create a new accounting journal
+        form:
+            labelcodejournal: Accounting code sheet
+            labellibelle: Unique wording
+            labelcomptecontrepartie: Counterpart Account
+            labelestbanque: Is it a bank?
+            labelsociete: society
+    editview:
+        title: Edit an operations log

@@ -1,0 +1,76 @@
+{% extends 'confjournal/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+              <li> {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li class="active"> {{'journal.name'|trans(arguments = {}, domain = 'journal')}}  </li>
+            <li class="active"> {{'journal.showview.title'|trans(arguments = {}, domain = 'journal')}}</li>
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'journal.showview.title'|trans(arguments = {}, domain = 'journal')}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('journal_index') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-arrow-left"></span> <b>  {{'crud.backbtnlabel'|trans(arguments = {}, domain = 'crud')}} </b></a>
+            </div>
+            <div class="col-md-3">
+                <a type="button" href="{{ path('journal_edit', { 'id': confJournal.id }) }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-pencil"></span> <b> {{'crud.editbtnlabel'|trans(arguments = {}, domain = 'crud')}} </b></a>
+            </div>
+        </div>
+
+        <br>
+    <table class="table table-bordered">
+        <tbody>
+           
+            <tr>
+                <th>{{'journal.indexview.table.codejournal'|trans(arguments = {}, domain = 'journal') }}</th>
+                <td>{{ confJournal.codeJournal }}</td>
+            </tr>
+            <tr>
+                <th>{{'journal.indexview.table.libelle'|trans(arguments = {}, domain = 'journal') }}</th>
+                <td>{{ confJournal.libelle }}</td>
+            </tr>
+            <tr>
+               <th>{{'journal.indexview.table.comptecomtrepartie'|trans(arguments = {}, domain = 'journal') }}</th>
+                <td>{{ confJournal.compteContrePartie }}</td>
+            </tr>
+            <tr>
+                  <th>{{'crud.delete'|trans(arguments = {}, domain = 'crud')}}</th>
+                <td>
+                    {% if confJournal.supprimer %} <span class="glyphicon glyphicon-remove"></span> {% else %} <span class="glyphicon glyphicon-ok"></span>{% endif %}
+                    </td>
+            </tr>
+            <tr>
+                <th>{{'journal.indexview.table.estbanque'|trans(arguments = {}, domain = 'journal') }}</th>
+                <td>
+                    {% if confJournal.estBanque %} <span class="glyphicon glyphicon-ok"></span> {% else %} <span class="glyphicon glyphicon-remove"></span>{% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>{{'crud.created'|trans(arguments = {}, domain = 'crud')}}</th>
+                <td>{% if confJournal.created %}{{ confJournal.created|date('d/m/Y H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+<!-- 
+    <ul>
+        <li>
+            <a href="{#{ path('confjournal_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('confjournal_edit', { 'id': confjournal.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }#}
+        </li>
+    </ul> -->
+{% endblock %}

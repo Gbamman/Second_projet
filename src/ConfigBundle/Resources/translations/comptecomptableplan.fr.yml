@@ -1,0 +1,28 @@
+comptecomptableplan:
+    name: Compte comptable plan
+    indexview:
+        title: liste des comptes comptable
+        addbtnlabel: Nouveau compte
+        table:
+            searchformlabel: Rechercher un code comptable, son sigle ou sa description
+            compte: Compte comptable
+            sens: Sens
+            description: Description
+            actif: Active
+            action: Actions
+            suppression: Supprimer
+            estespece: Est espèce
+            creation: Date creation
+
+    showview:
+        title: Détails sur le compte comptable
+    newview:
+        title: Créer un nouveau compte comptable
+        form:
+            labelplan: Plan comptable
+            labelcompte: Compte comptable
+            labelsens: Sens d'augmentation
+            labelestcompteespece: Est compte espèce ?
+            labeldescription: Description du compte
+    editview:
+        title: Modifier un compte

@@ -1,0 +1,100 @@
+{% extends 'confplan/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>  {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li class="active">{{'plancomptable.name'|trans(arguments = {}, domain = 'plancomptable')}}</li>
+            <li class="active">{{'plancomptable.showview.title'|trans(arguments = {}, domain = 'plancomptable')}}</li>
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'plancomptable.newview.title'|trans(arguments = {}, domain = 'plancomptable')}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('plan_index') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-arrow-left"></span> <b>{{'crud.backbtnlabel'|trans(arguments = {}, domain = 'crud')}}  </b></a>
+            </div>
+        </div>
+
+        <br>
+        <div class="well">
+            {{ form_start(edit_form) }}
+            <div class="row">
+                 <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_codePlan">{{'plancomptable.newview.form.labelplan'|trans(arguments = {}, domain = 'plancomptable')}}</label>
+                        {{ form_widget(edit_form.codePlan, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(edit_form.codePlan) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_compteCapitalSocial">{{'plancomptable.newview.form.labelcomptecapitalsocial'|trans(arguments = {}, domain = 'plancomptable')}}</label>
+                        {{ form_widget(edit_form.compteCapitalSocial, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(edit_form.compteCapitalSocial) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_societe">{{'plancomptable.newview.form.labelsociete'|trans(arguments = {}, domain = 'plancomptable')}}</label>
+                        {{ form_widget(edit_form.societe, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(edit_form.societe) }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_compteResultatInstanceDistribution">{{'plancomptable.newview.form.labelinstanceresultat'|trans(arguments = {}, domain = 'plancomptable')}}</label>
+                        {{ form_widget(edit_form.compteResultatInstanceDistribution, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(edit_form.compteResultatInstanceDistribution) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+
+                        <label class="control-label"  for="configbundle_confplan_compteBenefice">{{'plancomptable.newview.form.labelcomptebenefice'|trans(arguments = {}, domain = 'plancomptable')}}</label>
+                        {{ form_widget(edit_form.compteBenefice, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(edit_form.compteBenefice) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_comptePerte">{{'plancomptable.newview.form.labelcompteperte'|trans(arguments = {}, domain = 'plancomptable')}}</label>
+                        {{ form_widget(edit_form.comptePerte, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(edit_form.comptePerte) }}</span>
+                    </div>
+                </div>
+            </div>
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_designation">{{'plancomptable.newview.form.labeldesignation'|trans(arguments = {}, domain = 'plancomptable')}}</label>
+                        {{ form_widget(edit_form.designation, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(edit_form.designation) }}</span>
+                    </div>
+                </div>  
+
+            </div>
+            <!-- <div class="row">
+                
+            </div>
+             -->
+            {#{ form_widget(form) }#}
+            {{ form_rest(edit_form) }}
+
+            <button class="btn btn-success"  type="submit" > <span class="glyphicon  glyphicon-saved"></span> {{'crud.editbtnlabel'|trans(arguments = {}, domain = 'crud')}}</button>
+            {#<input  type="submit" value="Create" />#}
+            {{ form_end(edit_form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

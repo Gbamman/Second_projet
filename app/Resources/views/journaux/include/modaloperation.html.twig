@@ -1,0 +1,144 @@
+<div class="table-responsive">
+    <div id="modalCompte" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header panel-heading main-color-bg">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Liste des mouvements liés a l'opération</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="listeOperationId">
+                         <table class="table table-bordered" id="liste_des_mouvements">
+                            <thead  class="main-new-action-bg fontzize13px">
+                            <tr>
+                                <th class="text-uppercase text-muted text-center">N° COMPTE COMPTABLE</th>
+                                <th class="text-uppercase text-muted text-center">DESCRIPTION</th>
+                                <th class="text-uppercase text-muted text-center">DEBIT</th>
+                                <th class="text-uppercase text-muted text-center">CREDIT</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tablaeuMouvementBody">
+                                  {% for key,mouvements in Mouvements %}
+                                    {#{dump(mouvements)}#}
+                                   {% if mouvements is defined and  mouvements|length > 0 %}
+                                    <tr>
+                                    <th colspan="4" style="text-align: center"> {{mouvements[0].designation}} </th>
+                                   </tr>
+                                    
+                                    
+                                        {% set totCredit = 0 %}
+                                        {% set totDebit = 0 %}
+                                        {% for mouvement in mouvements %}
+                                            {% if mouvement.sens|trim == "D"  %}
+                                              {% set totDebit = totDebit+mouvement.valeur %}
+                                             {% else  %}
+                                             {% set totCredit = totCredit+mouvement.valeur %}
+                                            {% endif  %}
+                                    <tr>
+                                        <td>{{ mouvement.numCompteComptable }}</td>
+                                        <td>{{ mouvement.description }}</td>
+                                        <td style="text-align: right;">{% if mouvement.sens|trim == "D"  %}
+                                            {{ mouvement.valeur|number_format(0, '.', ' ') }}
+                                            {% else  %}
+                                                <!-- <strong> 0 </strong> -->
+                                                0 
+                                            {% endif  %}
+                                        </td>
+                                        <td style="text-align: right;">{% if mouvement.sens|trim == "C"  %}
+                                             {{ mouvement.valeur|number_format(0, '.', ' ') }}
+                                            {% else  %}
+                                                <!-- <strong> 0 </strong> -->
+                                                 0 
+                                            {% endif  %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                 <tr>
+                                    <td colspan="2" style="text-align: center; background:#f9f9f9"> TOTAL </td>
+                                    <td style="text-align: right;"> <strong>{{ totDebit|number_format(0, '.', ' ') }}</strong></td>
+                                    <td style="text-align: right;"> <strong>{{ totCredit|number_format(0, '.', ' ') }}</strong></td>
+                                </tr>
+                                    {% endif  %}
+                                {% endfor %}
+                                {# {% set totCredit = 0 %}
+                                 {% set totDebit = 0 %}
+                                 {% set natureOperationTemoin = "" %}
+                                 {% set natureOperationValeur = "" %}
+                                 {% set someValueVerif = false %}
+                            {% for mouvement in Mouvements %}
+                                {% if natureOperationTemoin |trim|length > 0  and mouvement.codeNatureOperation == natureOperationTemoin %}
+                                    {% if mouvement.sens|trim == "D"  %}
+                                        set totDebit = totDebit+mouvement.valeur
+                                        {% else  %}
+                                        set totCredit = totCredit+mouvement.valeur
+                                        {% endif  %}
+                                {% else if  natureOperationTemoin |trim|length <= 0 %}
+                                            set natureOperationTemoin = mouvement.codeNatureOperation
+                                            set natureOperationValeur = mouvement.designation
+                                            {% if mouvement.sens|trim == "D"  %}
+                                             set totDebit = totDebit+mouvement.valeur
+                                            {% else  %}
+                                             set totCredit = totCredit+mouvement.valeur
+                                            {% endif  %}
+                                {% else  %}
+                                            set natureOperationTemoin = mouvement.codeNatureOperation
+                                            set natureOperationValeur = mouvement.designation
+                                            set totDebit = 0;
+                                            set totCredit = 0;
+                                            set someValueVerif = true
+                                {% endif  %}
+                                |trim|length > 0   and dataclient.prenom |trim|length > 0
+                                {% if mouvement.sens|trim == "D"  %}
+                                        {{ mouvement.valeur|number_format(0, '.', ' ') }}
+                                        {% else  %}
+                                            <strong> 0 </strong>
+                                        {% endif  %}
+                                <tr>
+                                    <td>{{ mouvement.numCompteComptable }}</td>
+                                    <td>{{ mouvement.description }}</td>
+                                    <td >{% if mouvement.sens|trim == "D"  %}
+                                        {{ mouvement.valeur|number_format(0, '.', ' ') }}
+                                        {% else  %}
+                                            <strong> 0 </strong>
+                                        {% endif  %}
+                                        </td>
+                                    <td >{% if mouvement.sens|trim == "C"  %}
+                                        {{ mouvement.valeur|number_format(0, '.', ' ') }}
+                                            {% else  %}
+                                                <strong> 0 </strong>
+                                            {% endif  %}
+                                    </td>
+                                </tr>
+                                {% if someValueVerif == true %}
+                                <tr>
+                                    <td colspan="2" style="text-align: center"> TOTAL </td>
+                                    <td> {{ totalDebit|number_format(0, '.', ' ') }}</td>
+                                    <td> {{ totalCredit|number_format(0, '.', ' ') }}</td>
+                                </tr>
+                                {% else %}
+                            {% endfor %}
+                            <tr>
+                            <td colspan="2" style="text-align: center"> TOTAL </td>
+
+                            <td> {{ totalDebit|number_format(0, '.', ' ') }}</td>
+                            <td> {{ totalCredit|number_format(0, '.', ' ') }}</td>
+                            </tr>#}
+                            </tbody>
+                         </table> 
+                    </div>
+                    <div class="loadingContent displayNone mouvementLoding">
+                    <div class="wrapperMouvement">
+                    <div class="circle circle-1"></div>
+                    <div class="circle circle-1a"></div>
+                    <div class="circle circle-2"></div>
+                    <div class="circle circle-3"></div>
+                    <div style="clear:both"></div>
+                    </div>
+                    <h1>Loading&hellip;</h1>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

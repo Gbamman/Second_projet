@@ -1,0 +1,21 @@
+typeoperation:
+    name: Type of accounting transaction
+    indexview:
+        title: Lists of accounting transaction
+        addbtnlabel: New accounting transaction
+        table:
+            searchformlabel: Search for an accounting transaction from its code or its unique wording.
+            codetypeoperation: Transaction code
+            libelle: Unique wording
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details about the accounting transaction
+    newview:
+        title: Create a new accounting transaction
+        form:
+            labelcodetypeoperation: Accounting transaction code
+            labellibelle: Unique wording
+    editview:
+        title: Edit the type of transaction

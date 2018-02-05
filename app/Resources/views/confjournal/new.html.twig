@@ -1,0 +1,83 @@
+{% extends 'confjournal/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li> {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li class="active"> {{'journal.name'|trans(arguments = {}, domain = 'journal')}}  </li>
+            <li class="active"> {{'journal.newview.title'|trans(arguments = {}, domain = 'journal')}}</li>
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'journal.newview.title'|trans(arguments = {}, domain = 'journal')}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('journal_index') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-arrow-left"></span> <b>   {{'crud.backbtnlabel'|trans(arguments = {}, domain = 'crud')}}  </b></a>
+            </div>
+        </div>
+        <br>
+        <div class="well">
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confjournal_codeJournal">{{'journal.newview.form.labelcodejournal'|trans(arguments = {}, domain = 'journal')}} </label>
+                        {{ form_widget(form.codeJournal, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.codeJournal) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confjournal_compteContrePartie">{{'journal.newview.form.labelcomptecontrepartie'|trans(arguments = {}, domain = 'journal')}}</label>
+                        {{ form_widget(form.compteContrePartie, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.compteContrePartie) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confjournal_societe">{{'journal.newview.form.labelsociete'|trans(arguments = {}, domain = 'journal')}}</label>
+                        {{ form_widget(form.societe, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.societe) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="custom-control custom-checkbox">
+                    <div class="form-group">
+                       <!--  <label class="control-label labelDisplayLine"  >  -->
+                            <label class="containerCheckBox" style="padding-left:0px;" for="configbundle_confjournal_estBanque">{{'journal.newview.form.labelestbanque'|trans(arguments = {}, domain = 'journal')}}
+                            {{ form_widget(form.estBanque, {'attr' : {'class' : 'inputDisplayLine top120px'}}) }}
+                         <span class="checkmark"></span> </label>
+                        <span class="text-danger">{{ form_errors(form.estBanque) }}</span> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confjournal_libelle">{{'journal.newview.form.labellibelle'|trans(arguments = {}, domain = 'journal')}}</label>
+                        {{ form_widget(form.libelle, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.libelle) }}</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                
+            </div>
+             -->
+            {#{ form_widget(form) }#}
+            {{ form_rest(form) }}
+
+            <button class="btn btn-success"  type="submit" > <span class="glyphicon  glyphicon-saved"></span> {{'crud.savebtnlabel'|trans(arguments = {}, domain = 'crud')}} </button>
+            {#<input  type="submit" value="Create" />#}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

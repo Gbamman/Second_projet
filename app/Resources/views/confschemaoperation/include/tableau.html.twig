@@ -1,0 +1,35 @@
+    <table class="table table-bordered">
+        <thead  class="main-new-action-bg">
+            <tr>
+              
+                <th>{{'schemaoperation.indexview.table.codeschema'|trans(arguments = {}, domain = 'schemaoperation') }}</th>
+                <th>{{'schemaoperation.indexview.table.designation'|trans(arguments = {}, domain = 'schemaoperation') }}</th>
+             
+                <th>{{'schemaoperation.indexview.table.nbretape'|trans(arguments = {}, domain = 'schemaoperation') }}</th>
+                <th>{{'schemaoperation.indexview.table.active'|trans(arguments = {}, domain = 'schemaoperation') }}</th>
+               <!--  <th>Supprimer</th> -->
+                <!-- <th>Espece</th> -->
+                <!-- <th>Created</th> -->
+                <th style="width:100px !important">{{'schemaoperation.indexview.table.action'|trans(arguments = {}, domain = 'schemaoperation') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confSchemaOperation in confSchemaOperations %}
+            <tr>
+                <td>{{ confSchemaOperation.codeSchema }}</td>
+                <td>{{ confSchemaOperation.designation }}</td>
+                <td> {{ confSchemaOperation.nbrEtape  }}</td>
+                <td>{% if confSchemaOperation.supprimer %} <span class="glyphicon glyphicon-remove"></span> {% else %} <span class="glyphicon glyphicon-ok"></span>{% endif %}</td>
+                <!-- <td>{#% if confschemaoperation.supprimer %}Yes{% else %}No{% endif %}</td>
+                <td>{% if confschemaoperation.espece %}Yes{% else %}No{% endif %#}</td> -->
+                <!-- <td>{#% if confschemaoperation.created %}{{ confschemaoperation.created|date('Y-m-d H:i:s') }}{% endif %#}</td> -->
+                <td>
+                     <a class="btn btn-default btn-xs" href="{{path('schemaoperation_show', { 'id': confSchemaOperation.id })  }}"> <span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-info btn-xs" href="{{ path('schemaoperation_edit', { 'id': confSchemaOperation.id }) }}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-danger btn-xs" href="{{ path('schemaoperation_edit', { 'id': confSchemaOperation.id }) }}"> <span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    

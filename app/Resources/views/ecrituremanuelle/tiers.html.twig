@@ -1,0 +1,8 @@
+<select data-placeholder="{{'detailmodele.parametre.placeholderschema'|trans(arguments = {}, domain = 'detailmodele')}}" id="tiers2" name="tiers2" class="chosen-select" >
+    {% for tier in tiers %}
+        <option value=""> </option>
+        <option value="{{ tier.codeAnalytiqueTiers }}"> {{ tier.libelle }}</option>
+    {% endfor %}
+</select>
+
+<script> $(".chosen-select").chosen({width: "100%"}); </script>

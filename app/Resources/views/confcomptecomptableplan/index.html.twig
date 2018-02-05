@@ -1,0 +1,45 @@
+{% extends 'confcomptecomptableplan/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li> {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li class="active"> {{'comptecomptableplan.name'|trans(arguments = {}, domain = 'comptecomptableplan')}}  </li>
+          </ol>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'comptecomptableplan.indexview.title'|trans(arguments = {}, domain = 'comptecomptableplan')}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('comptecomptableplan_new') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-plus-sign"></span> <b> {{'comptecomptableplan.indexview.addbtnlabel'|trans(arguments = {}, domain = 'comptecomptableplan')}}</b></a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <input class="form-control" type="text" placeholder="{{'comptecomptableplan.indexview.table.searchformlabel'|trans(arguments = {}, domain = 'comptecomptableplan')}}">
+            </div>
+        </div>
+        <br>
+    <!--<h1>Liste des compte comptables plans </h1> -->
+     <div id="div_tableau_liste_comptecomptableplan">
+            {% include 'confcomptecomptableplan/include/tableau.html.twig' with  {'confCompteComptablePlans': confCompteComptablePlans} %}
+     </div>
+
+        {% include 'pagination.html.twig' %}
+
+
+        <!--  <ul>
+       <li>
+           <a href="{#{ path('confcomptecomptableplan_new') }#}">Create a new confCompteComptablePlan</a>
+       </li>
+   </ul> -->
+    </div>
+    </div>
+
+{% endblock %}

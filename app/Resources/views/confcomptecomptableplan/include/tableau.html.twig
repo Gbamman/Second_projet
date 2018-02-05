@@ -1,0 +1,30 @@
+ <table class="table table-bordered">
+        <thead  class="main-new-action-bg">
+            <tr>
+                <th>{{'comptecomptableplan.indexview.table.compte'|trans(arguments = {}, domain = 'comptecomptableplan') }}</th>
+                <th>{{'comptecomptableplan.indexview.table.sens'|trans(arguments = {}, domain = 'comptecomptableplan') }}</th>
+                <th>{{'comptecomptableplan.indexview.table.description'|trans(arguments = {}, domain = 'comptecomptableplan') }}</th>
+               <!--  <th>Supprimer</th> -->
+                <!-- <th>Espece</th> -->
+                <!-- <th>Created</th> -->
+                <th style="width:100px !important">{{'comptecomptableplan.indexview.table.action'|trans(arguments = {}, domain = 'comptecomptableplan') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confCompteComptablePlan in confCompteComptablePlans %}
+            <tr>
+                <td>{{ confCompteComptablePlan.numCompteComptable }}</td>
+                <td>{{ confCompteComptablePlan.sensAugmentation }}</td>
+                <td>{{ confCompteComptablePlan.description }}</td>
+                <!-- <td>{#% if confCompteComptablePlan.supprimer %}Yes{% else %}No{% endif %}</td>
+                <td>{% if confCompteComptablePlan.espece %}Yes{% else %}No{% endif %#}</td> -->
+                <!-- <td>{#% if confCompteComptablePlan.created %}{{ confCompteComptablePlan.created|date('Y-m-d H:i:s') }}{% endif %#}</td> -->
+                <td>
+                     <a class="btn btn-default btn-xs" href="{{path('comptecomptableplan_show', { 'id': confCompteComptablePlan.id })  }}"> <span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-info btn-xs" href="{{ path('comptecomptableplan_edit', { 'id': confCompteComptablePlan.id }) }}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-danger btn-xs" href="{{ path('comptecomptableplan_edit', { 'id': confCompteComptablePlan.id }) }}"> <span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

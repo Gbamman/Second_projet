@@ -1,0 +1,61 @@
+config_conf_schema_operation:
+    resource: "@ConfigBundle/Controller/ConfSchemaOperationController.php"
+    type:     annotation
+
+config_conf_type_operation:
+    resource: "@ConfigBundle/Controller/ConfTypeOperationController.php"
+    type:     annotation
+
+config_conf_journal:
+    resource: "@ConfigBundle/Controller/ConfJournalController.php"
+    type:     annotation
+
+config_conf_nature_operation:
+    resource: "@ConfigBundle/Controller/ConfNatureOperationController.php"
+    type:     annotation
+
+config_conf_plan:
+    resource: "@ConfigBundle/Controller/ConfPlanController.php"
+    type:     annotation
+
+config_conf_compte_comptable_plan:
+    resource: "@ConfigBundle/Controller/ConfCompteComptablePlanController.php"
+    type:     annotation
+
+config_conf_compte_comptable_plan:
+    resource: "@ConfigBundle/Controller/ConfCompteComptablePlanController.php"
+    type:     annotation
+
+config_conf_formule:
+    resource: "@ConfigBundle/Controller/ConfFormuleController.php"
+    type:     annotation
+
+user_user_action:
+    resource: "@UserBundle/Controller/UserActionController.php"
+    type:     annotation
+
+config_conf_societe:
+    resource: "@ConfigBundle/Controller/ConfSocieteController.php"
+    type:     annotation
+
+metier:
+    resource: "@MetierBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+config:
+    resource: "@ConfigBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

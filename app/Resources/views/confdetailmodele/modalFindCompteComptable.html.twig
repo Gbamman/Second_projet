@@ -1,0 +1,31 @@
+<!-- Large modal -->
+<div class="table-responsive">
+    <div id="modalCompte" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header panel-heading main-color-bg">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{'detailmodele.modal.title'|trans(arguments = {}, domain = 'detailmodele')}}</h4>
+                </div>
+                <div class="modal-body">
+
+                    <label class="col-md-8 control-label" for="typeClient">{{'detailmodele.modal.libelle'|trans(arguments = {}, domain = 'detailmodele')}}</label>
+                    <input type="text" id="findcompte"  name="findcompte" class="form-control" placeholder="{{'detailmodele.modal.placeholder'|trans(arguments = {}, domain = 'detailmodele')}}" required  >
+
+                        <div id="loader" class="loadingContent displayNone">
+                            <div class="wrapper">
+                                <div class="circle circle-1"></div>
+                                <div class="circle circle-1a"></div>
+                                <div class="circle circle-2"></div>
+                                <div class="circle circle-3"></div>
+                                <div style="clear:both"></div>
+                            </div>
+                            <h1>Loading&hellip;</h1>
+                        </div>
+                    <span id="result"></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

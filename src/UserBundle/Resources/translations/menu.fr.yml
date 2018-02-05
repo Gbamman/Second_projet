@@ -1,0 +1,34 @@
+menu:
+    dashboard:
+        application: Moteur comptable
+        dash: Tableau de bord
+        admin: Administration
+        admindescription: Gestion des utilisateurs , des sociétés et des agences
+        param: Parametrage
+        paramdescription: Créez des formules, paramétrez des comptes
+        etat: Etats financiers
+        etatdescription: Tirez et imprimez les  journaux , le grand livre et la balance
+
+    nav:
+        welcome: Bienvenue,
+        logout: Se déconnecter
+
+    admin:
+        utilisateur: Utilisateurs
+        agence: Agences
+        societe: Societés
+        exercice: Exercices
+        action: Actions
+    param:
+        plan: Plans comptables
+        compte: Comptes compatables
+        formule: Formules
+        nature: Natures d'opérations
+        typeop: Types d'opération
+        schemop: Schémas opération
+        modecriture: Modèles d'écritures
+    etat:
+        journal: Journaux
+        ecriture_manuelle: Ecriture Manuelle
+        grandlivre: Grand livre
+        balance: Balance

@@ -1,0 +1,72 @@
+{% extends 'confnatureoperation/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>  {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li class="active">{{'natureoperation.name'|trans(arguments = {}, domain = 'natureoperation')}}</li>
+            <li class="active">{{'natureoperation.showview.title'|trans(arguments = {}, domain = 'natureoperation')}}
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'natureoperation.newview.title'|trans(arguments = {}, domain = 'natureoperation')}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('natureoperation_index') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-arrow-left"></span> <b>  {{'crud.backbtnlabel'|trans(arguments = {}, domain = 'crud')}}   </b></a>
+            </div>
+        </div>
+
+        <br>
+        <div class="well">
+            {{ form_start(form) }}
+            <div class="row">
+                 <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confnatureoperation_codeNatureOperation">{{'natureoperation.newview.form.labelcodenature'|trans(arguments = {}, domain = 'natureoperation')}}</label>
+                        {{ form_widget(form.codeNatureOperation, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.codeNatureOperation) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confnatureoperation_designation">{{'natureoperation.newview.form.labeldesignation'|trans(arguments = {}, domain = 'natureoperation')}} </label>
+                        {{ form_widget(form.designation, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.designation) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confnatureoperation_numOrdre">{{'natureoperation.newview.form.labelnumerooperation'|trans(arguments = {}, domain = 'natureoperation')}} </label>
+                        {{ form_widget(form.numOrdre, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.numOrdre) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confnatureoperation_schemaOperation">{{'natureoperation.newview.form.labelschemaoperation'|trans(arguments = {}, domain = 'natureoperation')}}</label>
+                        {{ form_widget(form.schemaOperation, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.schemaOperation) }}</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                
+            </div>
+             -->
+            {#{ form_widget(form) }#}
+            {{ form_rest(form) }}
+
+            <button class="btn btn-success"  type="submit" > <span class="glyphicon  glyphicon-saved"></span> {{'crud.savebtnlabel'|trans(arguments = {}, domain = 'crud')}}</button>
+            {#<input  type="submit" value="Create" />#}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

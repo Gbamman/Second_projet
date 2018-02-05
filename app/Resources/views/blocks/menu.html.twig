@@ -1,0 +1,51 @@
+
+{#Le menu d'administration #}
+
+<div class="menu-item" >
+    <a class="list-group-item main-color-bg" role="button" data-toggle="collapse" href="#administration" aria-expanded="false" aria-controls="collapseExample">
+        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>   {{'menu.dashboard.admin'|trans(arguments = {}, domain = 'menu')}}
+    </a>
+    <div class="list-group collapse" id="administration">
+        <a id="societe" href="{{ path('societe_index') }}" class="list-group-item"> <span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span> {{'menu.admin.societe'|trans(arguments = {}, domain = 'menu')}}</a>
+
+        {#
+                <a href="utilisateurs.html" class="list-group-item"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{'menu.admin.utilisateur'|trans(arguments = {}, domain = 'menu')}}</a>
+        #}
+        <a id="agence" href="{{ path('agence_index') }}" class="list-group-item"> <span class="glyphicon glyphicon-home" aria-hidden="true"></span> {{'menu.admin.agence'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a id="exercice" href="{{ path("exercice_index") }}" class="list-group-item"> <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{'menu.admin.exercice'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a id="action" href="{{ path('action_index') }}" class="list-group-item"> <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span> {{'menu.admin.action'|trans(arguments = {}, domain = 'menu')}}</a>
+    </div>
+</div>
+
+
+{# Le menu de parametrage #}
+
+<div class="menu-item" >
+    <a class="list-group-item main-color-bg" role="button" data-toggle="collapse" href="#parametrage" aria-expanded="false" aria-controls="collapseExample">
+        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>   {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}}
+    </a>
+    <div class="list-group collapse" id="parametrage">
+        <a id="plancomptable" href="{{ path('plan_index') }}" class="list-group-item"> <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> {{'menu.param.plan'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a id="comptescomptablesplan" href="{{ path('comptecomptableplan_index',{'page':1}) }}" class="list-group-item"> <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span> {{'menu.param.compte'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a id="formule" href="{{ path('formule_index') }}" class="list-group-item"> <span class="glyphicon glyphicon-sort-by-order-alt" aria-hidden="true"></span> {{'menu.param.formule'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a id="nature_operation" href="{{ path('natureoperation_index') }}" class="list-group-item"> <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>  {{'menu.param.nature'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a id="journal" href="{{ path('journal_index') }}" class="list-group-item"> <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Journaux</a>
+        <a id="typeoperation" href="{{path('typeoperation_index')}}" class="list-group-item"> <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span> Type d'opération</a>
+        <a id="schemacomptable" href="{{path('schemaoperation_index')}}" class="list-group-item"> <span class="glyphicon glyphicon-console" aria-hidden="true"></span> Schéma dopération </a>
+        <a id="detailmodele" href="{{ path("detailmodele_index") }}" class="list-group-item"> <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> Modèles d'écriture </a>
+    </div>
+</div>
+
+{# Le menu des etats financiers #}
+
+<div class="menu-item" >
+    <a class="list-group-item main-color-bg" role="button" data-toggle="collapse" href="#etat" aria-expanded="false" aria-controls="collapseExample">
+        <span class="glyphicon glyphicon-sort " aria-hidden="true"> </span>     {{'menu.dashboard.etat'|trans(arguments = {}, domain = 'menu')}} </a>
+    <div class="list-group collapse" id="etat">
+        <a id="journaux" href="{{path('journaux_index')}}" class="list-group-item"> <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>  {{'menu.etat.journal'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a id="ecrituremanuelle" href="{{path('ecriture_manuelle')}}" class="list-group-item"> <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>  {{'menu.etat.ecriture_manuelle'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a href="#" class="list-group-item"> <spantypeoperation class="glyphicon glyphicon-bookmark" aria-hidden="true"></spantypeoperation>{{'menu.etat.grandlivre'|trans(arguments = {}, domain = 'menu')}}</a>
+        <a href="#" class="list-group-item"> <span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> {{'menu.etat.balance'|trans(arguments = {}, domain = 'menu')}}</a>
+
+    </div>
+</div>

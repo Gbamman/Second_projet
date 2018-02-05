@@ -1,0 +1,83 @@
+{% extends 'confcomptecomptableplan/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li> {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li class="active"> {{'comptecomptableplan.name'|trans(arguments = {}, domain = 'comptecomptableplan')}}  </li>
+            <li class="active"> {{'comptecomptableplan.newview.title'|trans(arguments = {}, domain = 'comptecomptableplan')}}</li>
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'comptecomptableplan.newview.title'|trans(arguments = {}, domain = 'comptecomptableplan')}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('comptecomptableplan_index') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-arrow-left"></span> <b>   {{'crud.backbtnlabel'|trans(arguments = {}, domain = 'crud')}}  </b></a>
+            </div>
+        </div>
+        <br>
+        <div class="well">
+            {{ form_start(form) }}
+            <div class="row">
+                 <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confcomptecomptableplan_numCompteComptable">{{'comptecomptableplan.newview.form.labelplan'|trans(arguments = {}, domain = 'comptecomptableplan')}} </label>
+                        {{ form_widget(form.plan, {'attr' : {'class' : 'form-control ChoiceProductSearch'}}) }}
+                        <span class="text-danger">{{ form_errors(form.plan) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confcomptecomptableplan_numCompteComptable">{{'comptecomptableplan.newview.form.labelcompte'|trans(arguments = {}, domain = 'comptecomptableplan')}} </label>
+                        {{ form_widget(form.numCompteComptable, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.numCompteComptable) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confcomptecomptableplan_sensAugmentation">{{'comptecomptableplan.newview.form.labelsens'|trans(arguments = {}, domain = 'comptecomptableplan')}}</label>
+                        {{ form_widget(form.sensAugmentation, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.sensAugmentation) }}</span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="custom-control custom-checkbox">
+                    <div class="form-group">
+                       <!--  <label class="control-label labelDisplayLine"  >  -->
+                            <label class="containerCheckBox" for="configbundle_confcomptecomptableplan_espece">{{'comptecomptableplan.newview.form.labelestcompteespece'|trans(arguments = {}, domain = 'comptecomptableplan')}}
+                        {{ form_widget(form.espece, {'attr' : {'class' : 'inputDisplayLine'}}) }}
+                         <span class="checkmark"></span> </label>
+                        <span class="text-danger">{{ form_errors(form.espece) }}</span> 
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confcomptecomptableplan_description">{{'comptecomptableplan.newview.form.labeldescription'|trans(arguments = {}, domain = 'comptecomptableplan')}}</label>
+                        {{ form_widget(form.description, {'attr' : {'class' : 'form-control'}}) }}
+                        <span class="text-danger">{{ form_errors(form.description) }}</span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                
+            </div>
+             -->
+            {#{ form_widget(form) }#}
+            {{ form_rest(form) }}
+
+            <button class="btn btn-success"  type="submit" > <span class="glyphicon  glyphicon-saved"></span> {{'crud.savebtnlabel'|trans(arguments = {}, domain = 'crud')}} </button>
+            {#<input  type="submit" value="Create" />#}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

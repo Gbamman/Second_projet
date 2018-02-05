@@ -1,0 +1,206 @@
+{% extends 'confdetailmodele/template.html.twig' %}
+{% block breadcrumb %}
+
+    <div class="container">
+        <ol class="breadcrumb">
+           <li>  {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li class="active">{{'detailmodele.name'|trans(arguments = {}, domain = 'detailmodele')}}</li>
+            <li class="active">{{'detailmodele.indexview.title'|trans(arguments = {}, domain = 'detailmodele')}}</li>
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'detailmodele.indexview.title'|trans(arguments = {}, domain = 'detailmodele')}}</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('detailmodele_index') }}" class="btn main-new-action-bg"> 
+                    <span class="glyphicon glyphicon-plus-sign"></span> <b> Retour sur le parametrage </b></a>
+            </div>
+        </div>
+
+        <br>
+
+        <span id="notification_param">
+
+        </span>
+        <div class="alert alert-danger" role="alert" id="messageAlertInfo" style="display:none">
+            <a href="#" class="close" aria-label="close" id="CloseBtn">&times;</a>
+            <strong>Oh snap!</strong> <a href="#" class="alert-link">Ecriture déséquilibrée </a> <br> 
+            <span>Nature operation : </span>
+            <span><strong id="ErrorNatureOpreration"></strong></span><br/>
+             <span>Total Débit: </span>
+            <span><strong id="ErrorTotDebit"></strong></span><br/>
+             <span>Total Crédit : </span>
+            <span><strong id="ErrorTotCredit"></strong></span><br/>
+          
+         </div>
+
+        <div class="well">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_compteCapitalSocial">Libelle de l'opération</label>
+                        <span id="loaderschema" class="text-center"><i  class="glyphicon glyphicon-refresh " style="font-size:1.8rem; visibility: hidden; margin-top: 10px"></i></span>
+                         <input type="text" name="libelleOperation"  placeholder="libelle de l'operation" class="form-control libelleOperation">
+                    </div>
+                </div>
+
+                 <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_codePlan">{{'detailmodele.parametre.plan'|trans(arguments = {}, domain = 'detailmodele')}}</label>
+                        <select id="plan2" name="plan2" class="chosen-select">
+                            {% for plan in plans %}
+                                <option value="{{ plan.codePlan }}"> {{ plan.designation }} -- {{ plan.societe.codeSociete }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_compteCapitalSocial">{{'detailmodele.parametre.typeoperation'|trans(arguments = {}, domain = 'detailmodele')}}</label>
+                        <select id="typeoperation2" name="typeoperation2" class="chosen-select" >
+                            {% for typeoperation in typesoperations %}
+                                <option value="{{ typeoperation.codeTypeOperation }}"> {{ typeoperation.libelle }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_codePlan">TIERS</label>
+                        <select id="tiers" name="tiers" class="chosen-select">
+                            <option value=""> Choisissez un tiers</option>
+                            {% for tier in tiers %}
+                                <option value="{{ tier.codeAnalytiqueTiers }}"> {{ tier.libelle }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_compteCapitalSocial">TITRE</label>
+                        <select id="titres" name="titres" class="chosen-select">
+                            <option value=""> Choisissez un titre</option>
+                            {% for titre in titres %}
+                                <option value="{{ titre.codeAnalytiqueTiers }}"> {{ titre.libelle }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+    
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_compteCapitalSocial">{{'detailmodele.parametre.schema'|trans(arguments = {}, domain = 'detailmodele')}}</label>
+                        <span id="loaderschema" class="text-center"><i  class="glyphicon glyphicon-refresh " style="font-size:1.8rem; visibility: hidden; margin-top: 10px"></i></span>
+                        <span id="spanschema">
+                            <select id="schema2" name="schema" onchange="getModeleEcritureAPartirDuSchema()" class="chosen-select" data-placeholder="{{'detailmodele.parametre.placeholderschema'|trans(arguments = {}, domain = 'detailmodele')}}">
+                                {% for schema in schemas %}
+                                    <option value="{{ schema.codeSchema }}"> {{ schema.designation }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                    </div>
+                </div>
+                {#<div class="col-md-6" style="display:none">
+                    <div class="form-group">
+                        <label class="control-label"  for="configbundle_confplan_compteCapitalSocial">{{'detailmodele.parametre.nature'|trans(arguments = {}, domain = 'detailmodele')}}</label>
+                        <span id="loadernature" class="text-center"><i  class="glyphicon glyphicon-refresh " style="font-size:1.8rem; visibility: hidden; margin-top: 10px"></i></span>
+                        <span id="spannature">
+                            <select id="nature" name="nature" class="chosen-select" data-placeholder="{{'detailmodele.parametre.placeholdernature'|trans(arguments = {}, domain = 'detailmodele')}}">
+                                {% for nature in natures %}
+                                    <option value="{{ nature.codeNatureOperation }}"> {{ nature.designation }}</option>
+                                {% endfor %}
+                            </select>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-6" style="display:none">
+                    <div class="form-group">
+                        <button class="btn btn-success"  id="btn-getmodele" type="submit"  onclick="getModeleEcriture()" disabled> <span class="glyphicon  glyphicon-saved"></span> {{'detailmodele.parametre.charger'|trans(arguments = {}, domain = 'detailmodele')}}  </button>
+                    </div>
+                </div>#}
+            </div>
+            </div>
+
+
+
+
+        <div class="well">
+            <div class="row">
+
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title"></h4>
+                            <p class="category">{{'detailmodele.table.title'|trans(arguments = {}, domain = 'detailmodele')}}</p>
+                        </div>
+
+
+
+                        <div id="loader" class="text-center"><i  class="fa fa-spinner fa-3x fa-spin " style="font-size:1.8rem; visibility: hidden; margin-top: 10px"></i></div>
+
+                          {#% if modeles is defined and  modeles == true %} {% endif %#} 
+                        <form name="modele-ecriture" id="modele-ecriture" method="post">
+                            <div class="content" id="result-modele">
+                                <table class="table table-bordered table-hover" id="table-modele">
+                                    <thead>
+                                    <tr>
+                                        <th>{{'detailmodele.table.table1.debit'|trans(arguments = {}, domain = 'detailmodele')}}</th>
+                                        <th>{{'detailmodele.table.table1.credit'|trans(arguments = {}, domain = 'detailmodele')}}</th>
+                                        <th>{{'detailmodele.table.table1.libelle'|trans(arguments = {}, domain = 'detailmodele')}}</th>
+                                        <th>{{'detailmodele.table.table1.formule'|trans(arguments = {}, domain = 'detailmodele')}}</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbody-modele">
+                                    {# <tr>
+                                         <td></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td></td>
+                                     </tr>{}#}
+                                    </tbody >
+                                </table>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <a class="btn btn-success btn-wd" href="#" id="sendBoutton">
+                                    <i class="glyphicon glyphicon-floppy-saved" aria-hidden="true"></i> Enregistree
+                                </a>
+                            </div>
+
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+    {# Modal à inclure #}
+    {{ include("confdetailmodele/modalFindCompteComptable.html.twig") }}
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('front/js/parametrageecritureapartirduschema.js') }}"></script>
+
+{% endblock %}
+
+
+

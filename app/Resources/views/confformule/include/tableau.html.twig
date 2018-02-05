@@ -1,0 +1,27 @@
+    <table class="table table-bordered">
+        <thead  class="main-new-action-bg fontzize13px">
+            <tr> 
+                <th>{{'formule.indexview.table.codeformule'|trans(arguments = {}, domain = 'formule') }}</th>
+                <th>{{'formule.indexview.table.libelleunique'|trans(arguments = {}, domain = 'formule') }} </th>
+                <th>{{'formule.indexview.table.description'|trans(arguments = {}, domain = 'formule') }} </th>
+                <th>{{'formule.indexview.table.active'|trans(arguments = {}, domain = 'formule') }} </th>
+                <th>{{'formule.indexview.table.actions'|trans(arguments = {}, domain = 'formule') }} </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confFormule in confFormules %}
+            <tr>
+                <td>{{ confFormule.codeFormule }}</td>
+                <td>{{ confFormule.libelleUnique }}</td>
+                <td>{{ confFormule.description }}</td>
+                <td>{% if confFormule.supprimer %} <span class="glyphicon glyphicon-remove"></span> {% else %} <span class="glyphicon glyphicon-ok"></span>{% endif %}</td>
+                <td>
+                     <a class="btn btn-default btn-xs" href="{{ path('formule_show', { 'id': confFormule.id }) }}"> <span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-info btn-xs" href="{{ path('formule_edit', { 'id': confFormule.id }) }}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-danger btn-xs" href="{{ path('formule_edit', { 'id': confFormule.id }) }}"> <span class="glyphicon glyphicon-remove"></span></a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

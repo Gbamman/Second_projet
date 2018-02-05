@@ -1,0 +1,8 @@
+crud:
+    editbtnlabel: Modifier
+    viewbtnlabel: Détails
+    deletebtnlabel: Supprimer
+    savebtnlabel: Enregistrer
+    backbtnlabel : Retour à la liste
+    created: Créé le
+    delete:  Supprimer

@@ -1,0 +1,21 @@
+exercice:
+    name: Excercices
+    indexview:
+        title: Listes des exercices
+        addbtnlabel: Nouveau Exercice
+        table:
+            searchformlabel: Rechercher un exercice à partir de sa date.
+            encours: En cours
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details sur l'exercice
+    newview:
+        title: Creer un nouveau exercice
+        form:
+            labelencours: code journal
+            labelperiode: Libelle
+            labelsociete: Compte contrepartie
+    editview:
+        title: Modifier l'exercice

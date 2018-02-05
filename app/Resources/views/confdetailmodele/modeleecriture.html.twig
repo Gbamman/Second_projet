@@ -1,0 +1,17 @@
+
+     {% for modele in modeles %}
+         <tr>
+             <td style="display: none;">{{ modele.id }}</td>
+             <td style="display: none;">{{ modele.compteComptablePlan.numCompteComptable }}</td>
+             <td style="display: none;">{{ modele.sens|trim }}</td>
+             <td style="display: none;">{{ modele.formule.codeFormule }}</td>
+             <td style="display: none;"> </td>
+             <td>{% if modele.sens == "D" %} {{ modele.compteComptablePlan.numCompteComptable }} {% endif %}</td>
+             <td>{% if modele.sens == "C" %} {{ modele.compteComptablePlan.numCompteComptable }} {% endif %}</td>
+             <td>{{ modele.compteComptablePlan.description }}</td>
+             <td>{{ modele.formule.description }}</td>
+             <td>
+                 <a href="#" class="btn btn-danger" onclick="deleterow(this)"><i class="glyphicon glyphicon-minus-sign" aria-hidden="true"></i></a>
+             </td>
+         </tr>
+     {% endfor %}

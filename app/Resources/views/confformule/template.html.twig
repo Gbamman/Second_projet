@@ -1,0 +1,8 @@
+{% extends 'paramTemplate.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('#formule').addClass('main-menu-actif');
+    </script>
+{% endblock %}

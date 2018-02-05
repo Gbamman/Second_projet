@@ -1,0 +1,26 @@
+journal:
+    name: Journal d'opérations
+    indexview:
+        title: Listes des journaux
+        addbtnlabel: Nouveau Journal
+        table:
+            searchformlabel: Rechercher un journal comptable à partir de son code journal, son libelle ou à partir d'une societé.
+            codejournal: Code journal
+            libelle: Libelle
+            comptecomtrepartie: Compte contrepartie
+            estbanque: Est banque?
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details sur le journal
+    newview:
+        title: Creer un nouveau journal
+        form:
+            labelcodejournal: code journal
+            labellibelle: Libelle
+            labelcomptecontrepartie: Compte contrepartie
+            labelestbanque: Est banque?
+            labelsociete: societe
+    editview:
+        title: Modifier le journal

@@ -1,0 +1,65 @@
+{% extends 'confexercice/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li> Administration </li>
+            <li class="active"> Exercice  </li>
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <h1>Confexercices list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Encours</th>
+                <th>Created</th>
+                <th>Supprimer</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confExercice in confExercices %}
+            <tr>
+                <td><a href="{{ path('exercice_show', { 'id': confExercice.id }) }}">{{ confExercice.id }}</a></td>
+                <td>{% if confExercice.enCours %}Yes{% else %}No{% endif %}</td>
+                <td>{% if confExercice.created %}{{ confExercice.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if confExercice.supprimer %}Yes{% else %}No{% endif %}</td>
+  <table class="table table-bordered">
+        <thead  class="main-new-action-bg">
+            <tr>
+                <th>{{'journal.indexview.table.codejournal'|trans(arguments = {}, domain = 'journal') }}</th>
+                <th>{{'journal.indexview.table.libelle'|trans(arguments = {}, domain = 'journal') }}</th>
+                <th>{{'journal.indexview.table.comptecomtrepartie'|trans(arguments = {}, domain = 'journal') }}</th>
+                <th>{{'journal.indexview.table.estbanque'|trans(arguments = {}, domain = 'journal') }}</th>
+                <th>{{'journal.indexview.table.active'|trans(arguments = {}, domain = 'journal') }}</th>
+               <!--  <th>Supprimer</th> -->
+                <!-- <th>Espece</th> -->
+                <!-- <th>Created</th> -->
+                <th style="width:100px !important">{{'journal.indexview.table.action'|trans(arguments = {}, domain = 'journal') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confExercice in confExercices %}
+            <tr>
+                <td>{{ confJournal.codeJournal }}</td>
+                <td>{{ confJournal.libelle }}</td>
+                <td>{{ confJournal.compteContrePartie }}</td>
+                <td>{% if confJournal.estBanque %} <span class="glyphicon glyphicon-ok"></span> {% else %} <span class="glyphicon glyphicon-remove"></span>{% endif %}</td>
+                <td>{% if confJournal.supprimer %} <span class="glyphicon glyphicon-remove"></span> {% else %} <span class="glyphicon glyphicon-ok"></span>{% endif %}</td>
+                <!-- <td>{#% if confjournal.supprimer %}Yes{% else %}No{% endif %}</td>
+                <td>{% if confjournal.espece %}Yes{% else %}No{% endif %#}</td> -->
+                <!-- <td>{#% if confjournal.created %}{{ confjournal.created|date('Y-m-d H:i:s') }}{% endif %#}</td> -->
+                <td>
+                     <a class="btn btn-default btn-xs" href="{{path('journal_show', { 'id': confJournal.id })  }}"> <span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-info btn-xs" href="{{ path('journal_edit', { 'id': confJournal.id }) }}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-danger btn-xs" href="{{ path('journal_edit', { 'id': confJournal.id }) }}"> <span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

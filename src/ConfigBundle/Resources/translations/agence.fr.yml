@@ -1,0 +1,24 @@
+agence:
+    name: Agences
+    indexview:
+
+        title: Listes des agences
+        addbtnlabel: Nouvelle agence
+        table:
+            searchformlabel: Rechercher une agence à partir de son code ou son libelle.
+            code: Code agence
+            libelle: Libelle
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details sur la nouvelle agence
+    newview:
+        title: Creer un nouvelee agence
+        form:
+            labelcode: code agence
+            labellibelle: Libelle
+            labelsociete: Societé
+
+    editview:
+        title: Modifier l'agence

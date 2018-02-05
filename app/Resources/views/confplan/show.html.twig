@@ -1,0 +1,88 @@
+{% extends 'confplan/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li>  {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li class="active">{{'plancomptable.name'|trans(arguments = {}, domain = 'plancomptable')}}</li>
+            <li class="active">{{'plancomptable.showview.title'|trans(arguments = {}, domain = 'plancomptable')}}
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">{{'plancomptable.showview.title'|trans(arguments = {}, domain = 'plancomptable')}} </h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3">
+                <a type="button" href="{{ path('plan_index') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-arrow-left"></span> <b> {{'crud.backbtnlabel'|trans(arguments = {}, domain = 'crud')}}   </b></a>
+            </div>
+            <div class="col-md-3">
+                <a type="button" href="{{ path('plan_edit', { 'id': confPlan.id }) }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-pencil"></span> <b> {{'crud.editbtnlabel'|trans(arguments = {}, domain = 'crud')}} </b></a>
+            </div>
+        </div>
+
+        <br>
+    <h1>Code plan</h1>
+
+    <table class="table table-bordered">
+        <tbody>
+           
+             <tr>
+                <th>Id</th>
+                <td>{{ confPlan.id }}</td>
+            </tr>
+            <tr>
+                <th>{{'plancomptable.indexview.table.codeplan'|trans(arguments = {}, domain = 'plancomptable') }}</th>
+                <td>{{ confPlan.codePlan }}</td>
+            </tr>
+            <tr>
+                <th>{{'plancomptable.indexview.table.designation'|trans(arguments = {}, domain = 'plancomptable') }}</th>
+                <td>{{ confPlan.designation }}</td>
+            </tr>
+            <tr>
+                <th>{{'plancomptable.indexview.table.capitalsocial'|trans(arguments = {}, domain = 'plancomptable') }}</th>
+                <td>{{ confPlan.compteCapitalSocial }}</td>
+            </tr>
+            <tr>
+                <th>{{'plancomptable.indexview.table.instancedistribution'|trans(arguments = {}, domain = 'plancomptable') }}</th>
+                <td>{{ confPlan.compteResultatInstanceDistribution }}</td>
+            </tr>
+            <tr>
+                <th>{{'plancomptable.indexview.table.comptebenefice'|trans(arguments = {}, domain = 'plancomptable') }}</th>
+                <td>{{ confPlan.compteBenefice }}</td>
+            </tr>
+            <tr>
+                <th>{{'plancomptable.indexview.table.compteperte'|trans(arguments = {}, domain = 'plancomptable') }}</th>
+                <td>{{ confPlan.comptePerte }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'crud.delete'|trans(arguments = {}, domain = 'crud') }}</th>
+                <td>{% if confPlan.supprimer %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>{{ 'crud.created'|trans(arguments = {}, domain = 'crud') }} </th>
+                <td>{% if confPlan.created %}{{ confPlan.created|date('d/m/Y H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+    {#<ul>
+        <li>
+            <a href="{{ path('confplan_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('confplan_edit', { 'id': confPlan.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>#}
+{% endblock %}

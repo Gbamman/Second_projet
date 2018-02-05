@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block header  %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10"> <h4><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{'menu.dashboard.etat'|trans(arguments = {}, domain = 'menu')}}  <small>  {{'menu.dashboard.etatdescription'|trans(arguments = {}, domain = 'menu')}}  </small> </h4></div>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('#etat').collapse('show');
+        $('#nav_etat').addClass('active');
+    </script>
+{% endblock %}

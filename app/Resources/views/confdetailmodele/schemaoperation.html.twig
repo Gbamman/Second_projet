@@ -1,0 +1,8 @@
+<select data-placeholder="{{'detailmodele.parametre.placeholderschema'|trans(arguments = {}, domain = 'detailmodele')}}" id="schema2" name="schema2" onchange="getNature()" class="chosen-select" >
+    {% for schema in schemas %}
+            <option value=""> </option>
+            <option value="{{ schema.codeSchema }}"> {{ schema.designation }}</option>
+    {% endfor %}
+</select>
+
+<script> $(".chosen-select").chosen({width: "100%"}); </script>

@@ -1,0 +1,35 @@
+menu:
+    dashboard:
+        application: Accounting engine
+        dash: Dashboard
+        admin: Administration
+        admindescription: User, company and agency management
+        param: Settings
+        paramdescription: Create formulas, set accounting accounts
+        etat: Financial State
+        etatdescription: Shoot and print newspapers, general ledger and balance
+
+    nav:
+        welcome: Welcome,
+        logout: Logout
+
+    admin:
+        utilisateur: Users
+        agence: Agencies
+        societe: Societies
+        exercice: Exercises
+        action: Actions
+    param:
+        plan: Accounting plans
+        compte: Accounting accounts
+        formule: Formulas
+        nature: Natures of operations
+        typeop: Types of operations
+        schemop: Operation schemes
+        modecriture: Entries models
+    etat:
+        journal: Journals
+        ecriture_manuelle: Ecriture Manuelle
+        grandlivre: Ledger
+        balance: Balance  
+

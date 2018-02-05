@@ -1,0 +1,8 @@
+<select id="nature" name="nature" data-placeholder="{{'detailmodele.parametre.placeholdernature'|trans(arguments = {}, domain = 'detailmodele')}}" class="chosen-select">
+   {% for nature in natures %}
+           <option value=""> </option>
+           <option value="{{ nature.codeNatureOperation }}"> {{ nature.designation }}</option>
+   {% endfor %}
+</select>
+
+<script> $(".chosen-select").chosen({width: "100%"}); </script>

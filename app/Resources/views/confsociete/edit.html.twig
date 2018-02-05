@@ -1,0 +1,63 @@
+{% extends 'confsociete/template.html.twig' %}
+
+{% block breadcrumb %}
+    <div class="container">
+        <ol class="breadcrumb">
+            <li> {{'menu.dashboard.admin'|trans(arguments = {}, domain = 'menu')}} </li>
+            <li> {{'societe.name'|trans(arguments = {}, domain = 'societe')}}  </li>
+            <li class="active"> {{'societe.editview.title'|trans(arguments = {}, domain = 'societe')}}  </li>
+        </ol>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading main-color-bg">
+            <h3 class="panel-title">{{'societe.editview.title'|trans(arguments = {}, domain = 'societe')}}  </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <a type="button" href="{{ path('societe_index') }}" class="btn main-new-action-bg"> <span class="glyphicon glyphicon-arrow-left"></span> <b>   {{'crud.backbtnlabel'|trans(arguments = {}, domain = 'crud')}}  </b></a>
+                </div>
+            </div>
+
+            <br>
+            <div class="well">
+                {{ form_start(edit_form) }}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label"  for="configbundle_confsociete_codeSociete">{{'societe.newview.form.labelcode'|trans(arguments = {}, domain = 'societe')}} </label>
+                            {{ form_widget(edit_form.codeSociete, {'attr' : {'class' : 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(edit_form.codeSociete) }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label"  for="configbundle_confsociete_sigle">{{'societe.newview.form.labelsigle'|trans(arguments = {}, domain = 'societe')}} </label>
+                            {{ form_widget(edit_form.sigle, {'attr' : {'class' : 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(edit_form.sigle) }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label"  for="configbundle_confsociete_description">{{'societe.newview.form.labeldescription'|trans(arguments = {}, domain = 'societe')}}  </label>
+                            {{ form_widget(edit_form.description, {'attr' : {'class' : 'form-control'}}) }}
+                            <span class="text-danger">{{ form_errors(edit_form.description) }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                {#{ form_widget(form) }#}
+                {{ form_rest(edit_form) }}
+
+                <button class="btn btn-success"  type="submit" > <span class="glyphicon  glyphicon-saved"></span> {{'crud.editbtnlabel'|trans(arguments = {}, domain = 'crud')}} </button>
+                {#<input  type="submit" value="Create" />#}
+                {{ form_end(edit_form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

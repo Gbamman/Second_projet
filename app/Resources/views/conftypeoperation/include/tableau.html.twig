@@ -1,0 +1,32 @@
+<table class="table table-bordered">
+        <thead  class="main-new-action-bg">
+            <tr>
+              
+                <th>{{'typeoperation.indexview.table.codetypeoperation'|trans(arguments = {}, domain = 'typeoperation') }}</th>
+                <th>{{'typeoperation.indexview.table.libelle'|trans(arguments = {}, domain = 'typeoperation') }}</th>
+             
+                <th>{{'typeoperation.indexview.table.active'|trans(arguments = {}, domain = 'typeoperation') }}</th>
+               <!--  <th>Supprimer</th> -->
+                <!-- <th>Espece</th> -->
+                <!-- <th>Created</th> -->
+                <th style="width:100px !important">{{'typeoperation.indexview.table.action'|trans(arguments = {}, domain = 'typeoperation') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confTypeOperation in confTypeOperations %}
+            <tr>
+                <td>{{ confTypeOperation.codeTypeOperation }}</td>
+                <td>{{ confTypeOperation.libelle }}</td>
+                <td>{% if confTypeOperation.supprimer %} <span class="glyphicon glyphicon-remove"></span> {% else %} <span class="glyphicon glyphicon-ok"></span>{% endif %}</td>
+                <!-- <td>{#% if conftypeoperation.supprimer %}Yes{% else %}No{% endif %}</td>
+                <td>{% if conftypeoperation.espece %}Yes{% else %}No{% endif %#}</td> -->
+                <!-- <td>{#% if conftypeoperation.created %}{{ conftypeoperation.created|date('Y-m-d H:i:s') }}{% endif %#}</td> -->
+                <td>
+                     <a class="btn btn-default btn-xs" href="{{path('typeoperation_show', { 'id': confTypeOperation.id })  }}"> <span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-info btn-xs" href="{{ path('typeoperation_edit', { 'id': confTypeOperation.id }) }}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-danger btn-xs" href="{{ path('typeoperation_edit', { 'id': confTypeOperation.id }) }}"> <span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

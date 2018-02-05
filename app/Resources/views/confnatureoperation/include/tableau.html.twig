@@ -1,0 +1,28 @@
+ <table class="table table-bordered">
+        <thead  class="main-new-action-bg">
+            <tr>
+                <th>{{ 'natureoperation.indexview.table.codenatureoperation'|trans(arguments = {}, domain = 'natureoperation') }}</th>
+                <th>{{ 'natureoperation.indexview.table.designation'|trans(arguments = {}, domain = 'natureoperation') }}</th>
+                <th>{{ 'natureoperation.indexview.table.numeroordre'|trans(arguments = {}, domain = 'natureoperation') }}</th>
+                <th>{{ 'natureoperation.indexview.table.active'|trans(arguments = {}, domain = 'natureoperation') }}</th>
+                <th>{{ 'natureoperation.indexview.table.actions'|trans(arguments = {}, domain = 'natureoperation') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for confNatureOperation in confNatureOperations %}
+            <tr>
+                <td>{{ confNatureOperation.codeNatureOperation}}</td>
+                <td>{{ confNatureOperation.designation}}</td>
+                <td>{{ confNatureOperation.numOrdre }}</td>
+               {# <td>{% if confSociete.created %}{{ confSociete.created|date('Y-m-d H:i:s') }}{% endif %}</td>#}
+                <td>{% if confNatureOperation.supprimer %} <span class="glyphicon glyphicon-remove"></span> {% else %} <span class="glyphicon glyphicon-ok"></span>{% endif %}</td>
+                <td>
+                    <a class="btn btn-default btn-xs" href="{{ path('natureoperation_show', { 'id': confNatureOperation.id }) }}"> <span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a class="btn btn-info btn-xs" href="{{ path('natureoperation_edit', { 'id': confNatureOperation.id }) }}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-danger btn-xs" href="{{ path('natureoperation_edit', { 'id': confNatureOperation.id }) }}"> <span class="glyphicon glyphicon-remove"></span></a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>

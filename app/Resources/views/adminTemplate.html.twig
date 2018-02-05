@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+ {% block header  %}
+     <div class="container">
+         <div class="row">
+             <div class="col-md-10"> <h4><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {{'menu.dashboard.admin'|trans(arguments = {}, domain = 'menu')}} <small> {{'menu.dashboard.admindescription'|trans(arguments = {}, domain = 'menu')}}  </small> </h4></div>
+             <div class="col-md-2"></div>
+         </div>
+
+     </div>
+ {% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+    <script>
+        $('#administration').collapse('show');
+        $('#nav_administration').addClass('active');
+    </script>
+{% endblock %}

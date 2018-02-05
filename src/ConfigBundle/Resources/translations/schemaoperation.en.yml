@@ -1,0 +1,26 @@
+schemaoperation:
+    name: Scheme of operations
+    indexview:
+        title: List of schemes
+        addbtnlabel: New schemes
+        table:
+            searchformlabel: Search for patterns of accounting records from the name or the number of step.
+            codeschema: Scheme code
+            designation: Designation
+            nbretape: Number of steps
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details on the writing scheme
+    newview:
+        title: Creat a scheme
+        form:
+            labelcodeschema: Scheme code
+            labeldesignation: Designation
+            labelnbretape: Number of steps
+            labelsociete: Society
+            labeljournal: accounting journal
+            labeltypeoperation: Type of operation
+    editview:
+            title: Edit scheme

@@ -1,0 +1,24 @@
+natureoperation:
+    name: Nature opérations
+    indexview:
+        title: Listes des natures operations
+        addbtnlabel: Nouvelle nature
+        table:
+            searchformlabel: Rechercher une opération à partir de son code nature, sa designation ou son numero d'ordre.
+            codenatureoperation: Code nature opération
+            designation: Désignation
+            numeroordre: Numéro d'ordre
+            active: Active
+            actions: Actions
+
+    showview:
+        title: Details sur la nature operation
+    newview:
+        title: Creer une nouvelle nature
+        form:
+            labelcodenature: Code nature
+            labeldesignation: Désignation
+            labelnumerooperation: Numéro ordre
+            labelschemaoperation: Schéma opération
+    editview:
+        title: Modifier la nature

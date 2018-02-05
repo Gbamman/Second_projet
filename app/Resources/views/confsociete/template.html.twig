@@ -1,0 +1,31 @@
+{% extends 'adminTemplate.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('#societe').addClass('main-menu-actif');
+    </script>
+
+    <script>
+        $("#form_index_search_societe").keyup(function(){
+            var text = $("#form_index_search_societe").val();
+           if(text.trim() !== ''){
+               $('#loading_search').css('visibility','visible');
+               $('#div_tablo_liste_societe').html(" ");
+               $.ajax({
+                   type: "POST",
+                   url: Routing.generate("societe_ajax_form_search"),
+                   data: {text: text},
+                   success: function (response) {
+                       $('#loading_search').css('visibility','hidden');
+                       $('#div_tablo_liste_societe').html(response);
+                   },
+                   error: function (response) {
+                       $('#loading_search').css('visibility','hidden');
+                   },
+               });
+
+           }
+        });
+    </script>
+{% endblock %}

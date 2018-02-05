@@ -1,0 +1,26 @@
+societe:
+    name: Société
+    indexview:
+        title: liste des sociétés
+        addbtnlabel: Nouvelle société
+        table:
+            searchformlabel: Rechercher une société avec son code , son sigle ou sa description
+            code: Code de la société
+            sigle: Sigle
+            description: Description
+            actif: Active
+            action: Actions
+
+    showview:
+        title: Détails de la société
+    newview:
+        title: Créer une nouvelle société
+        form:
+            labelcode: Code de la société
+            labelsigle: Sigle de la société
+            labeldescription: Description de la société
+    editview:
+        title: Modifier une société
+
+
+

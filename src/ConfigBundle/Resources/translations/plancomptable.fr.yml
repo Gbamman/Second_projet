@@ -1,0 +1,29 @@
+plancomptable:
+    name: Plan comptable
+    indexview:
+        title: liste des plans
+        addbtnlabel: Nouveau plan
+        table:
+            searchformlabel: Rechercher un plan comptable, son sigle ou sa description
+            codeplan: Code plan
+            designation: Designation
+            capitalsocial: Capital social
+            instancedistribution: Instance Distribution
+            comptebenefice: Compte benefice
+            compteperte: Compte perte
+            actions: Actions
+
+    showview:
+        title: Détails sur le compte comptable
+    newview:
+        title: Créer un nouveau compte comptable
+        form:
+            labelplan: Plan comptable
+            labelcomptecapitalsocial: Compte Capital social
+            labelsociete: Société
+            labeldesignation: Désignation
+            labelinstanceresultat: Compte résultat instance
+            labelcomptebenefice: Compte Bénéfice
+            labelcompteperte: Compte Perte
+    editview:
+        title: Modifier un compte

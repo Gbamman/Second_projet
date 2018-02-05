@@ -1,0 +1,25 @@
+        {#{dump(modeles)}#}
+     {% for key,modele in modeles %}
+        {% if modele is defined and  modele|length > 0 %} 
+            <tr><th colspan="5">Nature d'opérations: {{modele[key].natureOperation.designation}}</th></tr>
+            {% for modeleO in modele %}
+            <tr>
+                 <td style="display: none;" class="natureOp">{{modele[key].natureOperation.designation}}</td>
+                 <td style="display: none;" class="natureId">{{ modeleO.natureOperation.id }}</td>
+                 <td style="display: none;" class="numComptePlan">{{ modeleO.compteComptablePlan.numCompteComptable }}</td>
+                 <td style="display: none;" class="natureSens">{{ modeleO.sens|trim }}</td>
+                 <td style="display: none;" class="natureFormule">{{ modeleO.formule.codeFormule }}</td>
+                 <td style="display: none;"> </td>
+                 <td>{% if modeleO.sens == "D" %} {{ modeleO.compteComptablePlan.numCompteComptable }} {% endif %}</td>
+                 <td>{% if modeleO.sens == "C" %} {{ modeleO.compteComptablePlan.numCompteComptable }} {% endif %}</td>
+                 <td>{{ modeleO.compteComptablePlan.description }}</td>
+                 <td>{{ modeleO.formule.description }}</td>
+                 <td>
+                    <input type="" name="valeursaisie" class="valeursaisie">
+                     {#{<a href="#" class="btn btn-danger" onclick="deleterow(this)"><i class="glyphicon glyphicon-minus-sign" aria-hidden="true"></i></a>}#}
+                 </td>
+             </tr>
+          {% endfor %}
+         {% endif %}
+     {% endfor %}
+     

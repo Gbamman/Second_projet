@@ -1,0 +1,29 @@
+plancomptable:
+    name: Chart of accounts
+    indexview:
+        title:  List of accounts
+        addbtnlabel: New chart
+        table:
+            searchformlabel: Search for a chart of an account, by using its unique name or its description
+            codeplan: Code plan
+            designation: Designation
+            capitalsocial: Social capital
+            instancedistribution: Instance Distribution
+            comptebenefice: Profit account
+            compteperte: Account loss
+            actions: Actions
+
+    showview:
+        title: Details accounting
+    newview:
+        title: Create a new chart of accounts
+        form:
+            labelplan: Chart of Accounts
+            labelcomptecapitalsocial: Social Capital Account
+            labelsociete: Society
+            labeldesignation: Designation
+            labelinstanceresultat: Trial result account
+            labelcomptebenefice: Profit account
+            labelcompteperte: Loss Account
+    editview:
+        title: Edit a plan

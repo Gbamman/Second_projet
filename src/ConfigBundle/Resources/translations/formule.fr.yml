@@ -1,0 +1,23 @@
+formule:
+    name: Formules
+    indexview:
+        title: Liste des formules
+        addbtnlabel: Nouvelle formule
+        table:
+            searchformlabel: Rechercher une formule à partir de son code, son libelle unique sa description
+            codeformule: Code de formule
+            libelleunique: Libelle unique
+            description: Description
+            active: Active
+            actions: Actions
+
+    showview:
+        title: Détails sur la formule
+    newview:
+        title: Créer une nouvelle formule
+        form:
+            labelcodeformule: Code Formule
+            labellibelleunique: Libelle unique
+            labeldescriptionformule: Description de la formule
+    editview:
+        title: Modifier la formule

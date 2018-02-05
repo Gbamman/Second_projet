@@ -1,0 +1,26 @@
+schemaoperation:
+    name: Schema des opérations
+    indexview:
+        title: Liste des schemas
+        addbtnlabel: Nouveau schema
+        table:
+            searchformlabel: Rechercher les schemas d'ecritures comptables à partir de la désignation, le nombre d'etape.
+            codeschema: Code schema
+            designation: Designation
+            nbretape: Nbretape
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details sur le schema d'écriture
+    newview:
+        title: Creer un nouveau schema
+        form:
+            labelcodeschema: Code schema
+            labeldesignation: Designation
+            labelnbretape: NbrEtape
+            labelsociete: Societe
+            labeljournal: Journal
+            labeltypeoperation: Type d'opération
+    editview:
+            title: Modifier le schema

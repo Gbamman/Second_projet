@@ -1,0 +1,23 @@
+action:
+    name: Actions
+    indexview:
+
+        title: Listes des actions d 'un utilisateur
+        addbtnlabel: Nouvelle action
+        table:
+            searchformlabel: Rechercher une action à partir de son libellé.
+            code: Code agence
+            libelle: Libelle
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details sur l'action
+    newview:
+        title: Creer un nouvelle action
+        form:
+            labellibelle: Libelle action
+
+
+    editview:
+        title: Modifier l'action

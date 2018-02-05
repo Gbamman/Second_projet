@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block header  %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10"> <h4><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{'menu.dashboard.param'|trans(arguments = {}, domain = 'menu')}}  <small>  {{'menu.dashboard.paramdescription'|trans(arguments = {}, domain = 'menu')}}  </small> </h4></div>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('#parametrage').collapse('show');
+        $('#nav_parametrage').addClass('active');
+    </script>
+{% endblock %}

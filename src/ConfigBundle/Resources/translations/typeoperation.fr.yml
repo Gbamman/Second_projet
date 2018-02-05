@@ -1,0 +1,21 @@
+typeoperation:
+    name: Type d'opérations
+    indexview:
+        title: Listes des opérations
+        addbtnlabel: Nouvelle opération
+        table:
+            searchformlabel: Rechercher un type d'opération comptable à partir de son code ou de son libelle.
+            codetypeoperation: Code type operation
+            libelle: Libelle
+            active: Actif
+            action: Actions
+
+    showview:
+        title: Details sur l'opération
+    newview:
+        title: Creer une nouvelle opération
+        form:
+            labelcodetypeoperation: code type opération
+            labellibelle: Libelle
+    editview:
+        title: Modifier le type d'opération

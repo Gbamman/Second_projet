@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>{{ 'action.indexview.table.libelle'|trans(arguments = {}, domain = 'action') }}</th>
+        <th>{{ 'action.indexview.table.action'|trans(arguments = {}, domain = 'action') }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for userAction in userActions %}
+        <tr>
+            <td>{{ userAction.libelle }}</td>
+            <td>
+
+                <a class="btn btn-default btn-xs" href="{{ path('action_show', { 'id': userAction.id }) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+
+                <a class="btn btn-info btn-xs" href="{{ path('action_edit', { 'id': userAction.id }) }}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

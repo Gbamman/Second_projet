@@ -1,0 +1,23 @@
+formule:
+    name: Formulas
+    indexview:
+        title: List of formulas
+        addbtnlabel: New formula
+        table:
+            searchformlabel: Search for a formula from its code, unique wording or description
+            codeformule: Code of formula
+            libelleunique: Unique wording
+            description: Description
+            active: Active
+            actions: Actions
+
+    showview:
+        title: Formula Details
+    newview:
+        title: Create a new formula
+        form:
+            labelcodeformule: Formula Code
+            labellibelleunique: Unique wording
+            labeldescriptionformule: Description of the formula
+    editview:
+        title: Modify the formula

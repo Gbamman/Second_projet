@@ -1,0 +1,24 @@
+agence:
+    name: Agencies
+    indexview:
+
+        title: List of agencies
+        addbtnlabel: New agency
+
+        table:
+            searchformlabel: Search for an agency using its code or the agency name.
+            code: Agency code 
+            libelle: Agency name
+            active: Active
+            action: Actions
+
+    showview:
+        title: Details about the agency
+    newview:
+        title: Create a new agency
+        form:
+            labelcode: agency code 
+            labellibelle: Code name
+            labelsociete: Society
+    editview:
+        title: Edit the agency

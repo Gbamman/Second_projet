@@ -1,0 +1,19 @@
+
+<table id="datatable" class="table table-bordered table-hover">
+    <tr>
+        <th class="text-center">No</th>
+        <th>{{'detailmodele.modal.numerocompte'|trans(arguments = {}, domain = 'detailmodele')}}</th>
+        <th>{{'detailmodele.modal.compte'|trans(arguments = {}, domain = 'detailmodele')}}</th>
+    </tr>
+    {% for compte in comptes %}
+
+        <tr onclick="selectCompte({{ loop.index }})" style="cursor: pointer">
+        {#<tr onclick="alert('yess')" style="cursor: pointer">#}
+            <td  class="text-center">{{ loop.index }}</td>
+            <td class="text-left" id="intitule{{ loop.index }}" class="text-center">{{ compte.description|upper|trim }}</td>
+            <td id="search{{ loop.index }}" class="text-center">{{ compte.numCompteComptable|trim }}</td>
+        </tr>
+        {% else %}
+        <span class="text-danger text-center">{{'detailmodele.modal.default'|trans(arguments = {}, domain = 'detailmodele')}}</span>
+    {% endfor %}
+</table>

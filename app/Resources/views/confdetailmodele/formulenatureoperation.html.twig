@@ -1,0 +1,5 @@
+<select name="formulenature" id="formulenature">
+    {% for formule in formules %}
+        <option value="{{ formule.formule.codeFormule }}"> {{ formule.formule.description }}</option>
+    {% endfor %}
+</select>
